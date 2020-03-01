@@ -86,15 +86,13 @@ class TestXueQiu(unittest.TestCase):
 
     def test_gunping(self):
         #捕获文本信息进行滑动，直到找到文本位置
-        paicha = (
-            MobileBy.ANDROID_UIAUTOMATOR,
-            'new UiScrollable('
-                'new UiSelector().scrollable(true).instance(0))'
-                '.scrollIntoView('
-                    'new UiSelector().text("Popup").instance(0));'
-                  )
-
-        self.driver.find_element(*paicha).click()
+        scroll_to_element = (
+        MobileBy.ANDROID_UIAUTOMATOR,
+        'new UiScrollable('
+            'new UiSelector().scrollable(true).instance(0))'
+            '.scrollIntoView('
+                'new UiSelector().text("Popup Menu").instance(0));')
+        self.driver.find_element(*scroll_to_element).click()
 
 
     def tearDown(self):
