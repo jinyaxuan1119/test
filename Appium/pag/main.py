@@ -11,7 +11,7 @@ from Appium.pag.search import Search
 class Main(BasePage):
     def goto_search_page(self):
         search = (MobileBy.ID, "home_search")
-        WebDriverWait(self._driver,60).until(expected_conditions.visibility_of_element_located(search))
+        # WebDriverWait(self._driver,60).until(expected_conditions.visibility_of_element_located(search))
         self.find(*search).click()
         return Search(self._driver)
     def goto_stocks(self):

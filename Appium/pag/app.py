@@ -16,8 +16,8 @@ class App(BasePage):
         if self._driver is None:
             desired_caps = {}
             desired_caps["platformName"] = "Android"
-            desired_caps["platformVersion"] = "9"
-            desired_caps["deviceName"] = "93879e1f"
+            desired_caps["platformVersion"] = "6"
+            desired_caps["deviceName"] = "emulator-5554"
             desired_caps["automationName"] = "UiAutomator2"
             desired_caps["appPackage"] = self._package
             desired_caps["appActivity"] = self._activity
@@ -35,7 +35,6 @@ class App(BasePage):
         pass
     def main(self) -> Main:
         def wait_load(driver):
-            print(driver)
             print(datetime.datetime.now())
             source = self._driver.page_source
             if "我的" in source:
