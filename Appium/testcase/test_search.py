@@ -1,4 +1,5 @@
 import pytest
+import yaml
 
 from Appium.pag.app import App
 
@@ -10,9 +11,10 @@ class TestSearch:
     def test_search(self):
         assert self.main.goto_search_page().search("alibaba").get_price("BABA") > 200
 
-    @pytest.mark.parametrize("key,stock_type,pirce",[
-        ("alibaba","BABA",200),
-        ("JD","JD",20)
-    ])
+    # @pytest.mark.parametrize("key,stock_type,pirce",[
+    #     ("alibaba","BABA",200),
+    #     ("JD","JD",20)
+    # ])
+    @pytest.mark.parametrize("key,stock_type,pirce",yaml.safe_load(open("data.yaml")))
     def test_search_data(self,key,stock_type,pirce):
-        assert self.main.goto_search_page_().search(key).get_price(stock_type) > pirce
+        assert self.main.goto_search_page().search(key).get_price(stock_type) > pirce

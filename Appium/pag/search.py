@@ -18,7 +18,7 @@ class Search(BasePage):
         #todo:业务输入
 
     def get_price(self,key:str) -> float:
-        price_search = (MobileBy.XPATH,'//*[@text="BABA"]')
+        price_search = (MobileBy.XPATH,'//*[@text="%s"]'%key)
         WebDriverWait(self._driver,30).until(expected_conditions.visibility_of_element_located(price_search))
         return float(self.find(MobileBy.ID,"current_price").text)
 
