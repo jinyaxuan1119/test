@@ -12,8 +12,9 @@ class Search(BasePage):
     def search(self,key:str):
         search = (MobileBy.ID, "search_input_text")
         WebDriverWait(self._driver, 60).until(expected_conditions.visibility_of_element_located(search))
-        self.find(*search).send_keys(key)
-        self.find(self._name_locator).click()
+        # self.find(*search).send_keys(key)
+        # self.find(self._name_locator).click()
+        self.steps("../pag/search.yaml")
         return self
         #todo:业务输入
 
